@@ -1,6 +1,13 @@
 'use strict';
 var map_to_three_multiples = function(collections){
-  return [3,9,15,12,27];
+    let result = new Array();
+    
+    for (let i in collections) {
+        let n = collections[i] * 3;
+        result.push(n);
+    }
+    
+    return result;
 };
 
 module.exports = map_to_three_multiples;

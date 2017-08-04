@@ -1,7 +1,16 @@
 'use strict';
 
 function collect_max_number(collection) {
-  //在这里写入代码
+    let result = collection[0];
+    let i = 1;
+    
+    for (let i in collection){
+        if (collection[i] > result) {
+            result = collection[i];
+        }
+    }
+    
+    return result;
 }
 
 module.exports = collect_max_number;
