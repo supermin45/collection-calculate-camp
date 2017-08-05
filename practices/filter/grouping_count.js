@@ -19,9 +19,10 @@ function grouping_count(collection) {
         sum[i] = count;
         count = 1;
     }
-    let result = new Object();
+    let result = {};
     for (let i in yuansu) {
-        result.yuansu[i] = sum[i];
+        yuansu[i] = String(yuansu[i]);
+        result[yuansu[i]] =  sum[i];
     }
     
     return result;

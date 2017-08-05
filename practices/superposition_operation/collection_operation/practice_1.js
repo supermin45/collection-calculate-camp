@@ -1,7 +1,7 @@
 'use strict';
 
 function hybrid_operation(collection) {
-    let result;
+    let result = 0;
     
     for (let i in collection) {
         collection[i] = collection[i] * 3 + 2;

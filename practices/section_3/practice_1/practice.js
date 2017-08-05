@@ -16,6 +16,5 @@ function create_updated_collection(collection_a, object_b) {
             }
             return collection_a;
  }   
-function 
 
 module.exports = create_updated_collection;
