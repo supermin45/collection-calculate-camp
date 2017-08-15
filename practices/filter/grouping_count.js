@@ -2,30 +2,13 @@
 
 
 function grouping_count(collection) {
-    let count = 1;
-    
-    let yuansu = new Array();
-    let sum = new Array();
-    
-    for (let i = 0; i < collection.length; i++) {
-         for (let j = i + 1; j < collection.length; j++){
-              if (collection[i] === collection[j]) {
-                  count++;
-                  collection.splice(j,1);
-                  j--;
-              }
-        }
-        yuansu[i] = collection[i]; 
-        sum[i] = count;
-        count = 1;
-    }
-    let result = {};
-    for (let i in yuansu) {
-        yuansu[i] = String(yuansu[i]);
-        result[yuansu[i]] =  sum[i];
-    }
-    
-    return result;
+  let obj = {};
+  
+  collection.forEach(a => {
+      let count = collection.filter(b => a === b).length;
+      obj[`${a}`] = count;
+  });
+  return obj;
 }
 
 module.exports = grouping_count;

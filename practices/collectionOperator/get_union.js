@@ -2,16 +2,17 @@
 
 
 function get_union(collection_a, collection_b) {
-  let result = new Array();
-  let middle = new Array();
+    let arr = collection_a.concat(collection_b);
+    let noRepeat = [];
+    for (let item of arr) {
+        if (noRepeat.includes(item)) {
+            
+        }else {
+            noRepeat.push(item);
+        }
+    }
   
-  middle  = collection_a.concat(collection_b);
-  for (let i in middle) {
-      if (result.indexOf(middle[i]) === -1) {
-          result.push(middle[i]);
-      }
-  }
-  return result;
+  return noRepeat;
 }
 
 module.exports = get_union;

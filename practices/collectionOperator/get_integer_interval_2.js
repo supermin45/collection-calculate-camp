@@ -29,6 +29,7 @@ function odd(number_a, number_b) {
 
 
 function get_integer_interval_2(number_a, number_b) {
+    
     if (number_a < number_b) {
         return increase(number_a, number_b);
     }else if (number_a > number_b) {

@@ -1,73 +1,47 @@
  'use strict';
+
 function increase(number_a, number_b) {
-    var result = new Array();
-    
-    for (var i = number_a; i <= number_b; i++) {
-        let n = i + 96;
-        
-        if (n <= 122) {
-            result.push(String.fromCharCode(n));
+    let result = [];
+    for (let i =number_a; i <= number_b; i++) {
+        if (i <= 26) {
+            result.push(String.fromCharCode(i + 96));
         }else {
-            let n1 = n - 122;
-            let n2 = n1 + 96;
-            
-            if (n2 <= 122){
-                result.push('a' + String.fromCharCode(n2));
+            let a = Math.floor(i / 26);
+            let b = i % 26;
+            if (a > 1 && b === 0) {
+                result.push(String.fromCharCode(a  - 1 + 96) + String.fromCharCode(26 + 96));
             }else {
-                let a1 = n2 - 122;
-                let a2 = a1 + 96;
-                result.push('b' + String.fromCharCode(a2));
-            }
-            
-        }
-        
-    }
-    return result;
-}
-    
-   
-function decrease(number_a, number_b) {
-    var result = new Array();
-    
-    for (var i = number_a; i >= number_b; i--) {
-       let n = i + 96;
-        
-        if (n <= 122) {
-            result.push(String.fromCharCode(n));
-        }else {
-            let n1 = n - 122;
-            let n2 = n1 + 96;
-            
-            if (n2 <= 122){
-                result.push('a' + String.fromCharCode(n2));
-            }else {
-                let a1 = n2 - 122;
-                let a2 = a1 + 96;
-                result.push('b' + String.fromCharCode(a2));
+                result.push(String.fromCharCode(a + 96) + String.fromCharCode(b + 96));
             }
             
         }
     }
-    
     return result;
 }
 
-function self(number_a, number_b) {
-    var result = new Array();
-    
-    result.push('ab');
-    
+function decrease(number_a, number_b) {
+    let result = [];
+    for (let i =number_a; i >= number_b; i--) {
+        if (i <= 26) {
+            result.push(String.fromCharCode(i + 96));
+        }else {
+            let a = Math.floor(i / 26);
+            let b = i % 26;
+            if (a > 1 && b === 0) {
+                result.push(String.fromCharCode(a  - 1 + 96) + String.fromCharCode(26 + 96));
+            }else {
+                result.push(String.fromCharCode(a + 96) + String.fromCharCode(b + 96));
+            }
+            
+            
+        }
+    }
     return result;
 }
 
 function get_letter_interval_2(number_a, number_b) {
-    if (number_a < number_b) {
-        return increase(number_a, number_b);
-    }else if (number_a > number_b) {
-        return decrease(number_a, number_b);
-    }else {
-        return self(number_a, number_b);
-    }
+    return (number_a <= number_b) ? increase(number_a, number_b) : decrease(number_a, number_b);
+    
 }
 module.exports = get_letter_interval_2;
 
